@@ -1,0 +1,114 @@
+
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\.settings
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\StartCrawling.java = 14 linhas
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\CadespModel.java = 107 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\CagedModel.java = 216 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\ContatoCensecModel.java = 59 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\DetranModel.java = 88 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\JucespModel.java = 119 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\ParteCensecModel.java = 51 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\PFJsonModel.java = 217 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\PJJsonModel.java = 149 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\ProcessoArispModel.java = 98 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\RegistroArpenspModel.java = 159 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\ResultadoCensecModel.java = 149 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\model\SielModel.java = 97 linhas
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\CadespRepository.java = 70 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\CagedRepository.java = 145 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\ContatoCensecRepository.java = 94 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\DetranRepository.java = 67 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\JucespRepository.java = 77 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\ParteCensecRepository.java = 86 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\PFRepository.java = 104 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\PJRepository.java = 88 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\ProcessoArispRepository.java = 124 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\RegistroArpenspRepository.java = 78 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\ResultadoCensecRepository.java = 136 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\repository\SielRepository.java = 71 linhas
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\CapturaJson.java = 31 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\ConsomeApiPf.java = 41 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\ConsomeApiPj.java = 41 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\CrawlerPf.java = 110 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\CrawlerPj.java = 111 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\DBConect.java = 30 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\HttpComunication.java = 99 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\service\SnapShot.java = 18 linhas
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\ArispCrawler.java = 322 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\ArpenspCrawler.java = 91 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\CadespCrawler.java = 88 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\CagedCrawler.java = 200 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\CensecCrawler.java = 344 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\DetranCrawler.java = 224 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\InfocrimCrawler.java = 52 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\JucespCrawler.java = 105 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\MainWebDriver.java = 27 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\SielCrawler.java = 76 linhas
+	 C:\Users\tleite\eclipse-workspace\Crawler\src\main\java\br\com\fiap\webdriver\SivecCrawler.java = 52 linhas
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\resources
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\main\resources\lib-oracle
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\test
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\test\java
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\src\test\resources
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\br
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\br\com
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\br\com\fiap
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\br\com\fiap\model
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\br\com\fiap\repository
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\br\com\fiap\service
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\br\com\fiap\webdriver
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\lib-oracle
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\META-INF
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\META-INF\maven
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\META-INF\maven\br.fiap.com
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\classes\META-INF\maven\br.fiap.com\Crawler
+
+Path = C:\Users\tleite\eclipse-workspace\Crawler\target\test-classes
+
+
+
+=============================================
+Sub-pastas do projeto = 31 pastas
+Classes do projeto = 44 classes
+Linhas de codigo do projeto = 4725 linhas
