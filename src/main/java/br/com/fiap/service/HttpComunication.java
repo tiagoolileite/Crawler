@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -38,9 +39,9 @@ public class HttpComunication {
 	public static void editStatusPferror(PFJsonModel pf) throws IOException {
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpPut put = new HttpPut("http://localhost:8082/getPessoasF/erro/" + pf.getIdPf());
-		put.setHeader("Accept", "application/json");
-		put.setHeader("Content-type", "application/json");
+		HttpGet get = new HttpGet("http://localhost:8082/getPessoasF/erro/" + pf.getIdPf());
+		get.setHeader("Accept", "application/json");
+		get.setHeader("Content-type", "application/json");
 		
 		ResponseHandler<String> responseHandler = response -> {
 		    int status = response.getStatusLine().getStatusCode();
@@ -52,16 +53,16 @@ public class HttpComunication {
 		    }
 		};
 		
-		String responseBoyd = httpclient.execute(put, responseHandler);
+		String responseBoyd = httpclient.execute(get, responseHandler);
 		System.out.println(responseBoyd);
 	}
 	
 	public static void editStatusPferrorFull(PFJsonModel pf) throws IOException {
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpPut put = new HttpPut("http://localhost:8082/getPessoasF/erroFull/" + pf.getIdPf());
-		put.setHeader("Accept", "application/json");
-		put.setHeader("Content-type", "application/json");
+		HttpGet get = new HttpGet("http://localhost:8082/getPessoasF/erroFull/" + pf.getIdPf());
+		get.setHeader("Accept", "application/json");
+		get.setHeader("Content-type", "application/json");
 		
 		ResponseHandler<String> responseHandler = response -> {
 		    int status = response.getStatusLine().getStatusCode();
@@ -73,7 +74,7 @@ public class HttpComunication {
 		    }
 		};
 		
-		String responseBoyd = httpclient.execute(put, responseHandler);
+		String responseBoyd = httpclient.execute(get, responseHandler);
 		System.out.println(responseBoyd);
 	}
 	
@@ -100,9 +101,9 @@ public class HttpComunication {
 	public static void editStatusPjerror(PJJsonModel pj) throws IOException {
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpPut put = new HttpPut("http://localhost:8082/getPessoasJ/erro" + pj.getIdPj());
-		put.setHeader("Accept", "application/json");
-		put.setHeader("Content-type", "application/json");
+		HttpGet get = new HttpGet("http://localhost:8082/getPessoasJ/erro" + pj.getIdPj());
+		get.setHeader("Accept", "application/json");
+		get.setHeader("Content-type", "application/json");
 		
 		ResponseHandler<String> responseHandler = response -> {
 		    int status = response.getStatusLine().getStatusCode();
@@ -114,15 +115,15 @@ public class HttpComunication {
 		    }
 		};
 		
-		String responseBoyd = httpclient.execute(put, responseHandler);
+		String responseBoyd = httpclient.execute(get, responseHandler);
 		System.out.println(responseBoyd);
 	}
 
 	public static void editStatusPjerrorFull(PJJsonModel pj) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpPut put = new HttpPut("http://localhost:8082/getPessoasJ/erroFull" + pj.getIdPj());
-		put.setHeader("Accept", "application/json");
-		put.setHeader("Content-type", "application/json");
+		HttpGet get = new HttpGet("http://localhost:8082/getPessoasJ/erroFull" + pj.getIdPj());
+		get.setHeader("Accept", "application/json");
+		get.setHeader("Content-type", "application/json");
 		
 		ResponseHandler<String> responseHandler = response -> {
 		    int status = response.getStatusLine().getStatusCode();
@@ -134,7 +135,7 @@ public class HttpComunication {
 		    }
 		};
 		
-		String responseBoyd = httpclient.execute(put, responseHandler);
+		String responseBoyd = httpclient.execute(get, responseHandler);
 		System.out.println(responseBoyd);
 	}
 }

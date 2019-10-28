@@ -13,6 +13,7 @@ import br.com.fiap.webdriver.DetranCrawler;
 import br.com.fiap.webdriver.InfocrimCrawler;
 import br.com.fiap.webdriver.SielCrawler;
 import br.com.fiap.webdriver.SivecCrawler;
+import relatorio.CriaPdf;
 
 public class CrawlerPf {
 		
@@ -30,6 +31,7 @@ public class CrawlerPf {
 			ConsomeApiPf apiPf = new ConsomeApiPf();
 			PFRepository pfRepository = new PFRepository();
 			List<PFJsonModel> pessoasFJson = apiPf.ConsomeApiAguardando("Aguardando");
+			CriaPdf relatorio = new CriaPdf();
 			pfRepository.saveAll(pessoasFJson);
 			
 			for(PFJsonModel pf: pessoasFJson) {	
