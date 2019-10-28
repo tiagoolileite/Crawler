@@ -5,10 +5,24 @@ import br.com.fiap.service.CrawlerPj;
 
 public class StartCrawling {
 	public static void main(String[] args) {
-		CrawlerPf crwlPf = new CrawlerPf();
-		crwlPf.PessoaFiscia();
 		
-		//CrawlerPj crwlPj = new CrawlerPj();
-		//crwlPj.PessoaJurídica();
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				CrawlerPf crwlPf = new CrawlerPf();
+				crwlPf.PessoaFiscia();
+			}
+		}).start();
+		
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				CrawlerPj crwlPj = new CrawlerPj();
+				crwlPj.PessoaJurídica();
+			}
+		}).start();
+		
 	}
 }

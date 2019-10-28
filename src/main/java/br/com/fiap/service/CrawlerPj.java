@@ -22,90 +22,69 @@ public class CrawlerPj {
 	boolean statusJucesp = false;
 	
 	public void PessoaJurídica() {
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				try {
-					ConsomeApiPj apiPj = new ConsomeApiPj();
-					PJRepository pjRepository = new PJRepository();
-					List<PJJsonModel> pessoasJJson = apiPj.ConsomeApiAguardando("Aguardando");
-					pjRepository.saveAll(pessoasJJson);
+		try {
+			ConsomeApiPj apiPj = new ConsomeApiPj();
+			PJRepository pjRepository = new PJRepository();
+			List<PJJsonModel> pessoasJJson = apiPj.ConsomeApiAguardando("Aguardando");
+			pjRepository.saveAll(pessoasJJson);
+				
+			for(PJJsonModel pj:pessoasJJson) {
 					
-					for(PJJsonModel pj:pessoasJJson) {
-						
-						ArispCrawler arisp = new ArispCrawler();
-						try {
-							statusArisp = arisp.mainArispFlowPj(pj);
-						} catch (InterruptedException | IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						
-						CadespCrawler cadesp = new CadespCrawler();
-						statusCadesp = cadesp.mainCadespFlow(pj);
-						CagedCrawler caged = new CagedCrawler();
-						statusCaged = caged.mainCagedFlowPj(pj);
-					}
-						
-				} catch (Exception e) {
+				ArispCrawler arisp = new ArispCrawler();
+				try {
+					statusArisp = arisp.mainArispFlowPj(pj);
+				} catch (InterruptedException | IOException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
-					String msg = "Erro, pode ser q o servidor web não esta rodando" + e;
-					System.out.println(msg);
 				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
+						
+				CadespCrawler cadesp = new CadespCrawler();
+				statusCadesp = cadesp.mainCadespFlow(pj);
+				
+				CagedCrawler caged = new CagedCrawler();
+				statusCaged = caged.mainCagedFlowPj(pj);
+				
+				JucespCrawler jucesp = new JucespCrawler();
+				statusJucesp = jucesp.mainArispFlowPj(pj);
+				
+				CensecCrawler censec = new CensecCrawler();
 				try {
-					ConsomeApiPj apiPj = new ConsomeApiPj();
-					PJRepository pjRepository = new PJRepository();
-					List<PJJsonModel> pessoasJJson = apiPj.ConsomeApiAguardando("Aguardando");
-					pjRepository.saveAll(pessoasJJson);
-					
-					for(PJJsonModel pj:pessoasJJson) {
-						JucespCrawler jucesp = new JucespCrawler();
-						statusJucesp = jucesp.mainArispFlowPj(pj);
-						CensecCrawler censec = new CensecCrawler();
-						try {
-							statusCensec = censec.mainCensecFlowPj(pj);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						DetranCrawler detran = new DetranCrawler();
-						statusDetran = detran.mainDetranFlowPj(pj);
-					}
-				}catch (Exception e) {
+					statusCensec = censec.mainCensecFlowPj(pj);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
-					String msg = "Erro, pode ser q o servidor web não esta rodando" + e;
-					System.out.println(msg);
 				}
 				
+				DetranCrawler detran = new DetranCrawler();
+				statusDetran = detran.mainDetranFlowPj(pj);
+				
+				if(statusArisp == true && statusCadesp == true && statusCaged == true && statusCensec == true 
+						&& statusDetran == true && statusJucesp == true) {
+					HttpComunication.editStatusPj(pj);
+				}else if(statusArisp) {
+					HttpComunication.editStatusPjerror(pj);
+				}else if(statusCadesp) {
+					HttpComunication.editStatusPjerror(pj);
+				}else if(statusCaged) {
+					HttpComunication.editStatusPjerror(pj);
+				}else if(statusCensec) {
+					HttpComunication.editStatusPjerror(pj);
+				}else if(statusDetran) {
+					HttpComunication.editStatusPjerror(pj);
+				}else if(statusJucesp) {
+					HttpComunication.editStatusPjerror(pj);
+				}else if(statusArisp == false && statusCadesp == false && statusCaged == false 
+						&& statusCensec == false 
+						&& statusDetran == false && statusJucesp == false) {
+					HttpComunication.editStatusPjerrorFull(pj);
+				}
 			}
-		}).start();
+					
+		}catch (Exception e) {
+			e.printStackTrace();
+			String msg = "Erro, pode ser q o servidor web não esta rodando" + e;
+			System.out.println(msg);
+		}
 	}
 	
 }
-	/*
-	if(statusArisp == true) {
-		try {
-			HttpComunication.editStatusPj(pj);
-			System.out.println("Status de " + pj.getRazaoSocial() + ", (id: " + pj.getIdPj() + ") alterado para Pronto\n");
-		} catch (IOException e) {
-			System.out.println("Não foi possível alterar o status (Para pronto) de " +pj.getRazaoSocial() + ", (ID: " + pj.getIdPj() + ")!");
-			e.printStackTrace();
-		}
-	}
-	else {
-		try {
-			HttpComunication.editStatusPjerror(pj);
-		} catch (IOException e) {
-			System.out.println("Não foi possível alterar o status (Para erro) de " +pj.getRazaoSocial() + ", (ID: " + pj.getIdPj() + ")!");
-			e.printStackTrace();
-		}
-	}
-	*/

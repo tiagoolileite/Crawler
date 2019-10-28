@@ -26,67 +26,88 @@ public class CrawlerPf {
 	boolean statusSivec = false;
 	
 	public void PessoaFiscia(){
-		new Thread(new Runnable() {
+		try{
+			ConsomeApiPf apiPf = new ConsomeApiPf();
+			PFRepository pfRepository = new PFRepository();
+			List<PFJsonModel> pessoasFJson = apiPf.ConsomeApiAguardando("Aguardando");
+			pfRepository.saveAll(pessoasFJson);
 			
-			@Override
-			public void run() {
+			for(PFJsonModel pf: pessoasFJson) {	
+				ArispCrawler arisp = new ArispCrawler();
 				try {
-					ConsomeApiPf apiPf = new ConsomeApiPf();
-					PFRepository pfRepository = new PFRepository();
-					List<PFJsonModel> pessoasFJson = apiPf.ConsomeApiAguardando("Aguardando");
-					pfRepository.saveAll(pessoasFJson);
-					
-					for(PFJsonModel pf: pessoasFJson) {	
-						SivecCrawler sivec = new SivecCrawler();
-						statusSivec = sivec.mainSivecFlow(pf);
-						/*
-						ArispCrawler arisp = new ArispCrawler();
-						try {
-							statusArisp = arisp.mainArispFlowPf(pf);//
-						} catch (Exception e) {
-							 //TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						ArpenspCrawler arpensp = new ArpenspCrawler();
-						statusArpensp = arpensp.mainArpenspFlow(pf);
-						
-						CagedCrawler caged = new CagedCrawler();
-						statusCaged = caged.mainCagedFlowPf(pf);
-						
-						CensecCrawler censec = new CensecCrawler();
-						try {
-							statusCensec = censec.mainCensecFlowPf(pf);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						DetranCrawler detran = new DetranCrawler();
-						try {
-							statusDetran = detran.mainDetranFlowPf(pf);
-						} catch (IOException | InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						InfocrimCrawler infocrim = new InfocrimCrawler();
-						statusInfocrim = infocrim.mainInfoCrimFlow(pf);
-						
-						SielCrawler siel = new SielCrawler();
-						try {
-						statusSiel = siel.mainSielFlowPf(pf);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						*/
-					}
+					statusArisp = arisp.mainArispFlowPf(pf);//
+				} catch (Exception e) {
+				e.printStackTrace();
 				}
-					catch (Exception e) {
-						e.printStackTrace();
-						String msg = "Erro, pode ser q o servidor web não esta rodando" + e;
-						System.out.println(msg);
-					}
+				
+				ArpenspCrawler arpensp = new ArpenspCrawler();
+				statusArpensp = arpensp.mainArpenspFlow(pf);
+						
+				CagedCrawler caged = new CagedCrawler();
+				statusCaged = caged.mainCagedFlowPf(pf);
+						
+				CensecCrawler censec = new CensecCrawler();
+				try {
+					statusCensec = censec.mainCensecFlowPf(pf);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+						
+				DetranCrawler detran = new DetranCrawler();
+				try {
+					statusDetran = detran.mainDetranFlowPf(pf);
+				} catch (IOException | InterruptedException e) {
+					// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
+				
+				InfocrimCrawler infocrim = new InfocrimCrawler();
+				statusInfocrim = infocrim.mainInfoCrimFlow(pf);
+				
+				SivecCrawler sivec = new SivecCrawler();
+				statusSivec = sivec.mainSivecFlow(pf);
+					
+				SielCrawler siel = new SielCrawler();
+				try {
+					statusSiel = siel.mainSielFlowPf(pf);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				if(statusArisp == true && statusArpensp == true && statusCaged == true
+						&& statusCensec == true && statusDetran == true && statusInfocrim == true 
+						&& statusSiel == true && statusSivec == true) {
+					HttpComunication.editStatusPf(pf);
+				}else if(statusArisp == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusArpensp == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusCaged == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusCensec == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusDetran == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusInfocrim == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusSiel == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusSivec == false) {
+					HttpComunication.editStatusPferror(pf);
+				}else if(statusArisp == false && statusArpensp == false && statusCaged == false
+						&& statusCensec == false && statusDetran == false && statusInfocrim == false 
+						&& statusSiel == false && statusSivec == false) {
+					HttpComunication.editStatusPferrorFull(pf);
+				}
 			}
-		}).start();
+		}catch (Exception e) {
+		e.printStackTrace();
+		String msg = "Erro, pode ser q o servidor web não esta rodando" + e;
+		System.out.println(msg);
+		}
+
 	}
 }
 /*
