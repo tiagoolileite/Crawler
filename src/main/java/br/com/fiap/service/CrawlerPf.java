@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import br.com.fiap.model.PFJsonModel;
+import br.com.fiap.relatorio.CriaPdf;
 import br.com.fiap.repository.PFRepository;
 import br.com.fiap.webdriver.ArispCrawler;
 import br.com.fiap.webdriver.ArpenspCrawler;
@@ -13,7 +14,6 @@ import br.com.fiap.webdriver.DetranCrawler;
 import br.com.fiap.webdriver.InfocrimCrawler;
 import br.com.fiap.webdriver.SielCrawler;
 import br.com.fiap.webdriver.SivecCrawler;
-import relatorio.CriaPdf;
 
 public class CrawlerPf {
 		
@@ -34,7 +34,7 @@ public class CrawlerPf {
 			CriaPdf relatorio = new CriaPdf();
 			pfRepository.saveAll(pessoasFJson);
 			
-			for(PFJsonModel pf: pessoasFJson) {	
+			for(PFJsonModel pf: pessoasFJson) {
 				ArispCrawler arisp = new ArispCrawler();
 				try {
 					statusArisp = arisp.mainArispFlowPf(pf);//
@@ -44,10 +44,11 @@ public class CrawlerPf {
 				
 				ArpenspCrawler arpensp = new ArpenspCrawler();
 				statusArpensp = arpensp.mainArpenspFlow(pf);
-						
+				
+				
 				CagedCrawler caged = new CagedCrawler();
 				statusCaged = caged.mainCagedFlowPf(pf);
-						
+		
 				CensecCrawler censec = new CensecCrawler();
 				try {
 					statusCensec = censec.mainCensecFlowPf(pf);
@@ -55,7 +56,7 @@ public class CrawlerPf {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-						
+				
 				DetranCrawler detran = new DetranCrawler();
 				try {
 					statusDetran = detran.mainDetranFlowPf(pf);
@@ -67,9 +68,10 @@ public class CrawlerPf {
 				InfocrimCrawler infocrim = new InfocrimCrawler();
 				statusInfocrim = infocrim.mainInfoCrimFlow(pf);
 				
+				
 				SivecCrawler sivec = new SivecCrawler();
 				statusSivec = sivec.mainSivecFlow(pf);
-					
+				
 				SielCrawler siel = new SielCrawler();
 				try {
 					statusSiel = siel.mainSielFlowPf(pf);
@@ -103,6 +105,8 @@ public class CrawlerPf {
 						&& statusSiel == false && statusSivec == false) {
 					HttpComunication.editStatusPferrorFull(pf);
 				}
+	
+				relatorio.relatorioPdfPf(pf,statusArisp,statusArpensp,statusCaged,statusCensec,statusDetran,statusInfocrim,statusSiel,statusSivec);
 			}
 		}catch (Exception e) {
 		e.printStackTrace();
@@ -112,22 +116,3 @@ public class CrawlerPf {
 
 	}
 }
-/*
-if(statusArisp == true) {
-	try {
-		HttpComunication.editStatusPf(pf);
-		System.out.println("Status de " + pf.getNome() + ", (id: " + pf.getIdPf() + ") alterado para Pronto\n");
-	} catch (IOException e) {
-		System.out.println("Não foi possível alterar o status (Para pronto) de " +pf.getNome() + ", (ID: " + pf.getIdPf() + ")!");
-		e.printStackTrace();
-	}
-}
-else {
-	try {
-		HttpComunication.editStatusPferror(pf);
-	} catch (IOException e) {
-		System.out.println("Não foi possível alterar o status (Para erro) de " +pf.getNome() + ", (ID: " + pf.getIdPf() + ")!");
-		e.printStackTrace();
-	}
-}
-*/

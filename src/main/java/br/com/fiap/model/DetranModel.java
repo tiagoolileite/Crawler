@@ -13,6 +13,30 @@ public class DetranModel {
 	private String tipografico;
 	private String identidade;
 	private String cpf;
+	private long idPf;
+	
+	
+	
+	public DetranModel() {
+	}
+	public DetranModel(long idDetran, String renach, String categoria, String emissao, String dtNascimento,
+			String nomeCondutor, String nomePai, String nomeMae, String registro, String tipografico, String identidade,
+			String cpf, long idPf) {
+		super();
+		this.idDetran = idDetran;
+		this.renach = renach;
+		this.categoria = categoria;
+		this.emissao = emissao;
+		this.dtNascimento = dtNascimento;
+		this.nomeCondutor = nomeCondutor;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.registro = registro;
+		this.tipografico = tipografico;
+		this.identidade = identidade;
+		this.cpf = cpf;
+		this.idPf = idPf;
+	}
 	public long getIdDetran() {
 		return idDetran;
 	}
@@ -84,5 +108,11 @@ public class DetranModel {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	public long getIdPf() {
+		return idPf;
+	}
+	public void setIdPf(long idPf) {
+		this.idPf = idPf;
 	}
 }

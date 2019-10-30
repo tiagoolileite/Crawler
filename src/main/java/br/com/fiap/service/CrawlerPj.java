@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import br.com.fiap.model.PJJsonModel;
+import br.com.fiap.relatorio.CriaPdf;
 import br.com.fiap.repository.PJRepository;
 import br.com.fiap.webdriver.ArispCrawler;
 import br.com.fiap.webdriver.CadespCrawler;
@@ -26,6 +27,7 @@ public class CrawlerPj {
 			ConsomeApiPj apiPj = new ConsomeApiPj();
 			PJRepository pjRepository = new PJRepository();
 			List<PJJsonModel> pessoasJJson = apiPj.ConsomeApiAguardando("Aguardando");
+			CriaPdf relatorio = new CriaPdf();
 			pjRepository.saveAll(pessoasJJson);
 				
 			for(PJJsonModel pj:pessoasJJson) {
@@ -37,7 +39,7 @@ public class CrawlerPj {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-						
+					/*	
 				CadespCrawler cadesp = new CadespCrawler();
 				statusCadesp = cadesp.mainCadespFlow(pj);
 				
@@ -78,6 +80,9 @@ public class CrawlerPj {
 						&& statusDetran == false && statusJucesp == false) {
 					HttpComunication.editStatusPjerrorFull(pj);
 				}
+				*/
+				
+				relatorio.relatorioPdfPj(pj,statusArisp,statusCadesp,statusCaged,statusCensec,statusDetran,statusJucesp);
 			}
 					
 		}catch (Exception e) {

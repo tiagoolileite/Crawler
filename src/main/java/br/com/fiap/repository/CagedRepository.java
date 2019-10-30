@@ -3,6 +3,9 @@ package br.com.fiap.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.fiap.model.CagedModel;
 import br.com.fiap.model.PFJsonModel;
@@ -13,7 +16,7 @@ public class CagedRepository {
 
 	private Connection connection;
 	private PreparedStatement p,q;
-	private ResultSet rsSeq;
+	private ResultSet rsSeq,rs;
 	private String sql,sequence;
 	
 	public CagedRepository() {
@@ -140,6 +143,49 @@ public class CagedRepository {
 			System.out.println("Deu ruim ao gravar o cadastro da caged certinho do  "+ pfJson.getNome() + ", id " + pfJson.getIdPf() + "\n");
 			System.out.println(e);
 		}
+	}
+
+	public List<CagedModel> findAllById(PFJsonModel pfJson) {
+		List<CagedModel> cageds = new ArrayList<CagedModel>();
+		sql = "select * from tb_caged"
+				+ " where id_pf = ?";
+		
+		try {
+			p = connection.prepareStatement(sql);
+			p.setLong(1, pfJson.getIdPf());
+			rs = p.executeQuery();
+			
+			while(rs.next()) {				
+				long idCaged = rs.getLong(1);
+				String logradouro = rs.getString(2);
+				String bairroDistrito = rs.getString(3);
+				String municipio = rs.getString(4);
+				String uf = rs.getString(5);
+				String cep = rs.getString(6);
+				String nomContato = rs.getString(7);
+				String cpfContato = rs.getString(8);
+				String telContato = rs.getString(9);
+				String emailContato = rs.getString(10);
+				String ramalContato = rs.getString(11);
+				String nrFiliais = rs.getString(12);
+				String ctpsSerie = rs.getString(20);
+				String situacaoPis = rs.getString(21);
+				String nacionalidade = rs.getString(22);
+				String grauInstrucao = rs.getString(23);
+				String deficiente = rs.getString(24);
+				String sexo = rs.getString(25);
+				String racaCor = rs.getString(26);
+				String tempoTrabalho = rs.getString(27);
+				String rais = rs.getString(28);
+				
+				CagedModel caged = new CagedModel(idCaged, logradouro, bairroDistrito, municipio, uf, cep, nomContato, cpfContato, telContato, emailContato, ramalContato, nrFiliais, ctpsSerie, situacaoPis, nacionalidade, grauInstrucao, deficiente, sexo, racaCor, tempoTrabalho, rais, pfJson);
+				cageds.add(caged);
+			}
+		}catch (SQLException e) {
+			System.out.println("Erro para buscar os registros\n" + e);
+		}
+		
+		return cageds;
 	}
 
 }

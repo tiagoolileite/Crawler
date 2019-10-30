@@ -51,6 +51,33 @@ public class ProcessoArispRepository {
 		return processos;
 	}
 	
+	public List<ProcessoArispModel> findAllById(PFJsonModel pfJson){
+		List<ProcessoArispModel> processos = new ArrayList<ProcessoArispModel>();
+		sql = "select * from tb_arisp"
+				+ " where id_pf = ?";
+		
+		try {
+			p = connection.prepareStatement(sql);
+			p.setLong(1, pfJson.getIdPf());
+			rs = p.executeQuery();
+			
+			while(rs.next()) {				
+				long idProcessoArisp = rs.getLong(1);
+				String cidade = rs.getString(2);
+				String cartorio = rs.getString(3);
+				String matricula = rs.getString(4);
+				pfJson.setIdPf(rs.getLong(5));
+				ProcessoArispModel processo = new ProcessoArispModel(idProcessoArisp,cidade,cartorio,matricula,pfJson);
+				
+				processos.add(processo);
+			}
+		}catch (SQLException e) {
+			System.out.println("Erro para buscar os processos\n" + e);
+		}
+		
+		return processos;
+	}
+	
 	public void saveAllPf(List<ProcessoArispModel> processos, PFJsonModel pf) {
 		sql = "INSERT INTO TB_ARISP (" + 
 				"id_processo, " +
@@ -120,5 +147,32 @@ public class ProcessoArispRepository {
 		}catch (Exception e) {
 			System.out.println("Erro pra salvar a lista de processos pj bixo\n" + e);
 		}
+	}
+
+	public List<ProcessoArispModel> findAllByIdPj(PJJsonModel pj) {
+		List<ProcessoArispModel> processos = new ArrayList<ProcessoArispModel>();
+		sql = "select * from tb_arisp"
+				+ " where id_pj = ?";
+		
+		try {
+			p = connection.prepareStatement(sql);
+			p.setLong(1, pj.getIdPj());
+			rs = p.executeQuery();
+			
+			while(rs.next()) {				
+				long idProcessoArisp = rs.getLong(1);
+				String cidade = rs.getString(2);
+				String cartorio = rs.getString(3);
+				String matricula = rs.getString(4);
+				pj.setIdPj(rs.getLong(6));
+				ProcessoArispModel processo = new ProcessoArispModel(idProcessoArisp,cidade,cartorio,matricula,pj);
+				
+				processos.add(processo);
+			}
+		}catch (SQLException e) {
+			System.out.println("Erro para buscar os processos\n" + e);
+		}
+		
+		return processos;
 	}
 }

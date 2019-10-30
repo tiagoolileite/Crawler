@@ -37,9 +37,9 @@ public class InfocrimCrawler {
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement element = driver.findElement(By.xpath("/html/body"));
-			SnapShot.takeSnapShot(driver, file.getPath() + "//bo"+elaboracao+"-pt1.png");
+			SnapShot.takeSnapShot(driver, file.getPath() + "//bo_"+elaboracao+"//"+"pt1.png");
 			js.executeScript("window.scrollTo(0,2000)", element);
-			SnapShot.takeSnapShot(driver, file.getPath() + "//bo"+elaboracao+"-pt2.png");
+			SnapShot.takeSnapShot(driver, file.getPath() + "//bo_"+elaboracao+"//"+"pt2.png");
 			
 			driver.quit();
 			ok = true;

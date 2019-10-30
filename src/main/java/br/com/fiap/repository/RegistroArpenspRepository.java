@@ -3,6 +3,9 @@ package br.com.fiap.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.fiap.model.PFJsonModel;
 import br.com.fiap.model.RegistroArpenspModel;
@@ -12,7 +15,7 @@ public class RegistroArpenspRepository {
 
 	private Connection connection;
 	private PreparedStatement p,q;
-	private ResultSet rsSeq;
+	private ResultSet rsSeq,rs;
 	private String sql,sequence;
 	
 	public RegistroArpenspRepository() {
@@ -73,6 +76,46 @@ public class RegistroArpenspRepository {
 		catch (Exception e) {
 			System.out.println("Deu pau pra gravar o registro da pessoa " + pf.getNome() + ", erro -> \n" + e);
 		}
+	}
+
+	public List<RegistroArpenspModel> findAllById(PFJsonModel pfJson) {
+		List<RegistroArpenspModel> registros = new ArrayList<RegistroArpenspModel>();
+		sql = "select * from tb_arpensp"
+				+ " where id_pf = ?";
+		
+		try {
+			p = connection.prepareStatement(sql);
+			p.setLong(1, pfJson.getIdPf());
+			rs = p.executeQuery();
+			
+			while(rs.next()) {				
+				long idRegistro = rs.getLong(1);
+				String cartorio = rs.getString(2);
+				String nrCns = rs.getString(3);
+				String uf = rs.getString(4);
+				String nomeConjuge1 = rs.getString(5);
+				String nomeConjuge2 = rs.getString(6);
+				String nvNomeConjuge2 = rs.getString(7);
+				String dtCasamento = rs.getString(8);
+				String matricula = rs.getString(9);
+				String dtEntrada = rs.getString(10);
+				String dtRegistro = rs.getString(11);
+				String acervo = rs.getString(12);
+				String nrLivro = rs.getString(13);
+				String nrFolha = rs.getString(14);
+				String nrRegistro = rs.getString(15);
+				String tipoLivro = rs.getString(16);
+				pfJson.setIdPf(rs.getLong(17));
+				RegistroArpenspModel registro = new RegistroArpenspModel(idRegistro,cartorio,nrCns,uf,nomeConjuge1,nomeConjuge2,nvNomeConjuge2,dtCasamento,matricula,
+						dtEntrada,dtRegistro,acervo,nrFolha,nrRegistro,tipoLivro, nrLivro, pfJson);
+				
+				registros.add(registro);
+			}
+		}catch (SQLException e) {
+			System.out.println("Erro para buscar os registros\n" + e);
+		}
+		
+		return registros;
 	}
 
 }

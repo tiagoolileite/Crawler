@@ -33,6 +33,15 @@ public class ProcessoArispModel {
 		this.pf = pf;
 	}
 
+	public ProcessoArispModel(long idProcessoArisp, String cidade, String cartorio, String matricula, PJJsonModel pj) {
+		super();
+		this.idProcessoArisp = idProcessoArisp;
+		this.cidade = cidade;
+		this.cartorio = cartorio;
+		this.matricula = matricula;
+		this.pj = pj;
+	}
+
 	public ProcessoArispModel(String cidade, String cartorio, String matricula) {
 		// TODO Auto-generated constructor stub
 	}

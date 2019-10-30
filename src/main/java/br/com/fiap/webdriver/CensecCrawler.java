@@ -123,7 +123,7 @@ public class CensecCrawler {
 			resultadoCensec.setAtoCarga(atoCarga);
 			resultadoCensec.setDtAtoCarga(dtAtoCarga);
 			resultadoCensec.setLivroCarga(livroCarga);
-			resultadoCensec.setComplementLivroCarga(complementoLivroCarga);
+			resultadoCensec.setComplementoLivroCarga(complementoLivroCarga);
 			resultadoCensec.setFolhaCarga(complementoFolhaCarga);
 			resultadoCensec.setComplementoFolhaCarga(complementoFolhaCarga);
 			
@@ -285,7 +285,7 @@ public class CensecCrawler {
 			resultadoCensec.setAtoCarga(atoCarga);
 			resultadoCensec.setDtAtoCarga(dtAtoCarga);
 			resultadoCensec.setLivroCarga(livroCarga);
-			resultadoCensec.setComplementLivroCarga(complementoLivroCarga);
+			resultadoCensec.setComplementoLivroCarga(complementoLivroCarga);
 			resultadoCensec.setFolhaCarga(folhaCarga);
 			resultadoCensec.setComplementoFolhaCarga(complementoFolhaCarga);
 			

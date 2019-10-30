@@ -1,6 +1,7 @@
 package br.com.fiap.model;
 
 public class CagedModel {
+	
 	private Long idCaged;
 	private String logradouro;
 	private String bairroDistrito;
@@ -33,6 +34,75 @@ public class CagedModel {
 	private PFJsonModel pf;
 	private PJJsonModel pj;
 	
+	public CagedModel() {
+	}
+	
+	public CagedModel(Long idCaged, String logradouro, String bairroDistrito, String municipio, String uf, String cep,
+			String nomContato, String cpfContato, String telContato, String emailContato, String ramalContato,
+			String nrFiliais, String ctpsSerie, String situacaoPis, String nacionalidade, String grauInstrucao,
+			String deficiente, String sexo, String racaCor, String tempoTrabalho, String rais, PFJsonModel pf) {
+		super();
+		this.idCaged = idCaged;
+		this.logradouro = logradouro;
+		this.bairroDistrito = bairroDistrito;
+		this.municipio = municipio;
+		this.uf = uf;
+		this.cep = cep;
+		this.nomContato = nomContato;
+		this.cpfContato = cpfContato;
+		this.telContato = telContato;
+		this.emailContato = emailContato;
+		this.ramalContato = ramalContato;
+		this.nrFiliais = nrFiliais;
+		this.ctpsSerie = ctpsSerie;
+		this.situacaoPis = situacaoPis;
+		this.nacionalidade = nacionalidade;
+		this.grauInstrucao = grauInstrucao;
+		this.deficiente = deficiente;
+		this.sexo = sexo;
+		this.racaCor = racaCor;
+		this.tempoTrabalho = tempoTrabalho;
+		this.rais = rais;
+		this.pf = pf;
+	}
+	
+	public CagedModel(Long idCaged, String logradouro, String bairroDistrito, String municipio, String uf, String cep,
+			String nomContato, String cpfContato, String telContato, String emailContato, String ramalContato,
+			String nrFiliais, String admissoes, String variacaoAbsoluta, String totalVinculos, String desligamentos,
+			String primeiroDia, String ultimoDia, String pisBase, String ctpsSerie, String situacaoPis,
+			String nacionalidade, String grauInstrucao, String deficiente, String sexo, String racaCor,
+			String tempoTrabalho, String rais, PFJsonModel pf) {
+		super();
+		this.idCaged = idCaged;
+		this.logradouro = logradouro;
+		this.bairroDistrito = bairroDistrito;
+		this.municipio = municipio;
+		this.uf = uf;
+		this.cep = cep;
+		this.nomContato = nomContato;
+		this.cpfContato = cpfContato;
+		this.telContato = telContato;
+		this.emailContato = emailContato;
+		this.ramalContato = ramalContato;
+		this.nrFiliais = nrFiliais;
+		this.admissoes = admissoes;
+		this.variacaoAbsoluta = variacaoAbsoluta;
+		this.totalVinculos = totalVinculos;
+		this.desligamentos = desligamentos;
+		this.primeiroDia = primeiroDia;
+		this.ultimoDia = ultimoDia;
+		this.pisBase = pisBase;
+		this.ctpsSerie = ctpsSerie;
+		this.situacaoPis = situacaoPis;
+		this.nacionalidade = nacionalidade;
+		this.grauInstrucao = grauInstrucao;
+		this.deficiente = deficiente;
+		this.sexo = sexo;
+		this.racaCor = racaCor;
+		this.tempoTrabalho = tempoTrabalho;
+		this.rais = rais;
+		this.pf = pf;
+	}
 	public Long getIdCaged() {
 		return idCaged;
 	}

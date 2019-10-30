@@ -17,7 +17,7 @@ public class ResultadoCensecModel {
 	private String atoCarga;
 	private String dtAtoCarga;
 	private String livroCarga;
-	private String complementLivroCarga;
+	private String complementoLivroCarga;
 	private String folhaCarga;
 	private String complementoFolhaCarga;
 	
@@ -26,6 +26,34 @@ public class ResultadoCensecModel {
 	
 	private PFJsonModel pf;
 	private PJJsonModel pj;
+	
+	public ResultadoCensecModel() {
+
+	}
+	public ResultadoCensecModel(Long idCensec, String nomeEmpresa, String cpfCnpj, String identidade, String cartorio,
+			String tipoAto, String livro, String folha, String dtAto, String carga, String atoCarga, String dtAtoCarga,
+			String livroCarga, String complementoLivroCarga, String folhaCarga, String complementoFolhaCarga,
+			PFJsonModel pf) {
+		super();
+		this.idCensec = idCensec;
+		this.nomeEmpresa = nomeEmpresa;
+		this.cpfCnpj = cpfCnpj;
+		this.identidade = identidade;
+		this.cartorio = cartorio;
+		this.tipoAto = tipoAto;
+		this.livro = livro;
+		this.folha = folha;
+		this.dtAto = dtAto;
+		this.carga = carga;
+		this.atoCarga = atoCarga;
+		this.dtAtoCarga = dtAtoCarga;
+		this.livroCarga = livroCarga;
+		this.complementoLivroCarga = complementoLivroCarga;
+		this.folhaCarga = folhaCarga;
+		this.complementoFolhaCarga = complementoFolhaCarga;
+		this.pf = pf;
+	}
+	
 	public Long getIdCensec() {
 		return idCensec;
 	}
@@ -104,12 +132,7 @@ public class ResultadoCensecModel {
 	public void setLivroCarga(String livroCarga) {
 		this.livroCarga = livroCarga;
 	}
-	public String getComplementLivroCarga() {
-		return complementLivroCarga;
-	}
-	public void setComplementLivroCarga(String complementLivroCarga) {
-		this.complementLivroCarga = complementLivroCarga;
-	}
+
 	public String getFolhaCarga() {
 		return folhaCarga;
 	}
@@ -121,6 +144,12 @@ public class ResultadoCensecModel {
 	}
 	public void setComplementoFolhaCarga(String complementoFolhaCarga) {
 		this.complementoFolhaCarga = complementoFolhaCarga;
+	}
+	public String getComplementoLivroCarga() {
+		return complementoLivroCarga;
+	}
+	public void setComplementoLivroCarga(String complementoLivroCarga) {
+		this.complementoLivroCarga = complementoLivroCarga;
 	}
 	public List<ParteCensecModel> getPartes() {
 		return partes;

@@ -101,7 +101,7 @@ public class HttpComunication {
 	public static void editStatusPjerror(PJJsonModel pj) throws IOException {
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpGet get = new HttpGet("http://localhost:8082/getPessoasJ/erro" + pj.getIdPj());
+		HttpGet get = new HttpGet("http://localhost:8082/getPessoasJ/erro/" + pj.getIdPj());
 		get.setHeader("Accept", "application/json");
 		get.setHeader("Content-type", "application/json");
 		

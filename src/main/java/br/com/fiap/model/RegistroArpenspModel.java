@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "REGISTRO_ARPENSP_SEQ", sequenceName = "REGISTRO_ARPENSP_SEQ", initialValue = 1, allocationSize = 1)
 public class RegistroArpenspModel {
 	
-	private long id_registro;
+	private long idRegistro;
 	private String cartorioDeRegistro;
 	private String nrCns;
 	private String uf;
@@ -32,13 +32,41 @@ public class RegistroArpenspModel {
 	
 	private PFJsonModel pf;
 	
+	public RegistroArpenspModel(long idRegistro, String cartorioDeRegistro, String nrCns, String uf,
+			String nomeConjuge1, String nomeConjuge2, String novoNomeConjuge2, String dtCasamento, String matricula,
+			String dtEntrada, String dtRegistro, String acervo, String nrLivro, String nrFolha, String nrRegistro,
+			String tipoLivro, PFJsonModel pf) {
+		super();
+		this.idRegistro = idRegistro;
+		this.cartorioDeRegistro = cartorioDeRegistro;
+		this.nrCns = nrCns;
+		this.uf = uf;
+		this.nomeConjuge1 = nomeConjuge1;
+		this.nomeConjuge2 = nomeConjuge2;
+		this.novoNomeConjuge2 = novoNomeConjuge2;
+		this.dtCasamento = dtCasamento;
+		this.matricula = matricula;
+		this.dtEntrada = dtEntrada;
+		this.dtRegistro = dtRegistro;
+		this.acervo = acervo;
+		this.nrLivro = nrLivro;
+		this.nrFolha = nrFolha;
+		this.nrRegistro = nrRegistro;
+		this.tipoLivro = tipoLivro;
+		this.pf = pf;
+	}
+
+
+
+	public RegistroArpenspModel() {
+	}
 	@Id
 	@Column(name="ID_REGISTRO")
-	public long getId_registro() {
-		return id_registro;
+	public long getIdRegistro() {
+		return idRegistro;
 	}
-	public void setId_registro(long id_registro) {
-		this.id_registro = id_registro;
+	public void setIdRegistro(long id_registro) {
+		this.idRegistro = id_registro;
 	}
 	@Column(name="CARTORIO_REGISTRO")
 	public String getCartorioDeRegistro() {

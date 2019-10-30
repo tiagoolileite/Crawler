@@ -23,9 +23,49 @@ public class SivecModel {
 	private String profissao;
 	private String enderecoResidencial;
 	private String enderecoTrabalho;
+	private long idPf;
+	
+	
+	
+	public SivecModel() {
+	}
+	
+	
 	public long getIdSivec() {
 		return idSivec;
 	}
+	public SivecModel(long idSivec, String nome, String sexo, String dtNascimento, String rg, String tipoRg,
+			String dtEmissaoRg, String estadoCivil, String naturalizado, String grauInstrucao, String nomePai,
+			String nomeMae, String corPele, String alcunha, String naturalidade, String postoIdentificacao,
+			String formulaFundamental, String corOlhos, String cabelo, String profissao, String enderecoResidencial,
+			String enderecoTrabalho, long idPf) {
+		super();
+		this.idSivec = idSivec;
+		this.nome = nome;
+		this.sexo = sexo;
+		this.dtNascimento = dtNascimento;
+		this.rg = rg;
+		this.tipoRg = tipoRg;
+		this.dtEmissaoRg = dtEmissaoRg;
+		this.estadoCivil = estadoCivil;
+		this.naturalizado = naturalizado;
+		this.grauInstrucao = grauInstrucao;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.corPele = corPele;
+		this.alcunha = alcunha;
+		this.naturalidade = naturalidade;
+		this.postoIdentificacao = postoIdentificacao;
+		this.formulaFundamental = formulaFundamental;
+		this.corOlhos = corOlhos;
+		this.cabelo = cabelo;
+		this.profissao = profissao;
+		this.enderecoResidencial = enderecoResidencial;
+		this.enderecoTrabalho = enderecoTrabalho;
+		this.idPf = idPf;
+	}
+
+
 	public void setIdSivec(long idSivec) {
 		this.idSivec = idSivec;
 	}
@@ -154,6 +194,12 @@ public class SivecModel {
 	}
 	public void setEnderecoTrabalho(String enderecoTrabalho) {
 		this.enderecoTrabalho = enderecoTrabalho;
+	}
+	public long getIdPf() {
+		return idPf;
+	}
+	public void setIdPf(long idPf) {
+		this.idPf = idPf;
 	}
 	
 	

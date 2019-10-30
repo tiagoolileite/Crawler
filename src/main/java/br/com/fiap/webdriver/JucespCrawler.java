@@ -95,9 +95,9 @@ public class JucespCrawler {
 				}
 			}
 			driver.quit();
-			ok = false;
+			ok = true;
 			}catch (Exception e) {
-				ok = true;
+				ok = false;
 			}
 		return ok;
 	}

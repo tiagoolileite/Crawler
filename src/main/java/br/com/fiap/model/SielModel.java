@@ -14,6 +14,29 @@ public class SielModel {
 	private String nomeMae;
 	private String naturalidade;
 	private String codValidacao;
+	private long idPf;
+	
+	public SielModel() {
+	}
+	public SielModel(long idSiel, String nome, String titulo, String dtNascimento, String zona, String endereco,
+			String municipio, String uf, String dtDomicilio, String nomePai, String nomeMae, String naturalidade,
+			String codValidacao, long idPf) {
+		super();
+		this.idSiel = idSiel;
+		this.nome = nome;
+		this.titulo = titulo;
+		this.dtNascimento = dtNascimento;
+		this.zona = zona;
+		this.endereco = endereco;
+		this.municipio = municipio;
+		this.uf = uf;
+		this.dtDomicilio = dtDomicilio;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.naturalidade = naturalidade;
+		this.codValidacao = codValidacao;
+		this.idPf = idPf;
+	}
 	public long getIdSiel() {
 		return idSiel;
 	}
@@ -91,6 +114,12 @@ public class SielModel {
 	}
 	public void setCodValidacao(String codValidacao) {
 		this.codValidacao = codValidacao;
+	}
+	public long getIdPf() {
+		return idPf;
+	}
+	public void setIdPf(long idPf) {
+		this.idPf = idPf;
 	}
 	
 	
