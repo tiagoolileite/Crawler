@@ -1,7 +1,7 @@
 package br.com.fiap.model;
 
 public class JucespModel {
-	private long idJuceso;
+	private long idJucesp;
 	private String razaoSocial;
 	private String nireMatriz;
 	private String tipoEmpresa;
@@ -17,11 +17,19 @@ public class JucespModel {
 	private String complemento;
 	private String cep;
 	private String uf;
-	public long getIdJuceso() {
-		return idJuceso;
+	private long idPj;
+	
+	
+	
+	
+	public JucespModel() {
 	}
-	public void setIdJuceso(long idJuceso) {
-		this.idJuceso = idJuceso;
+	
+	public long getIdJucesp() {
+		return idJucesp;
+	}
+	public void setIdJucesp(long idJucesp) {
+		this.idJucesp = idJucesp;
 	}
 	public String getRazaoSocial() {
 		return razaoSocial;
@@ -113,7 +121,38 @@ public class JucespModel {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	
+
+	public long getIdPj() {
+		return idPj;
+	}
+
+	public void setIdPj(long idPj) {
+		this.idPj = idPj;
+	}
+
+	public JucespModel(long idJucesp, String razaoSocial, String nireMatriz, String tipoEmpresa, String dtConstituicao,
+			String inicioAtividade, String cnpj, String objetivo, String capital, String logradouro, String nr,
+			String bairro, String municipio, String complemento, String cep, String uf, long idPj) {
+		super();
+		this.idJucesp = idJucesp;
+		this.razaoSocial = razaoSocial;
+		this.nireMatriz = nireMatriz;
+		this.tipoEmpresa = tipoEmpresa;
+		this.dtConstituicao = dtConstituicao;
+		this.inicioAtividade = inicioAtividade;
+		this.cnpj = cnpj;
+		this.objetivo = objetivo;
+		this.capital = capital;
+		this.logradouro = logradouro;
+		this.nr = nr;
+		this.bairro = bairro;
+		this.municipio = municipio;
+		this.complemento = complemento;
+		this.cep = cep;
+		this.uf = uf;
+		this.idPj = idPj;
+	}
+
 	
 
 }

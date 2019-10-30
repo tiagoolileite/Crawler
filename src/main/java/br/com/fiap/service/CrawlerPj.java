@@ -39,15 +39,12 @@ public class CrawlerPj {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-					/*	
+				
 				CadespCrawler cadesp = new CadespCrawler();
 				statusCadesp = cadesp.mainCadespFlow(pj);
-				
+
 				CagedCrawler caged = new CagedCrawler();
 				statusCaged = caged.mainCagedFlowPj(pj);
-				
-				JucespCrawler jucesp = new JucespCrawler();
-				statusJucesp = jucesp.mainArispFlowPj(pj);
 				
 				CensecCrawler censec = new CensecCrawler();
 				try {
@@ -57,8 +54,12 @@ public class CrawlerPj {
 					e.printStackTrace();
 				}
 				
+				
 				DetranCrawler detran = new DetranCrawler();
 				statusDetran = detran.mainDetranFlowPj(pj);
+		
+				JucespCrawler jucesp = new JucespCrawler();
+				statusJucesp = jucesp.mainArispFlowPj(pj);
 				
 				if(statusArisp == true && statusCadesp == true && statusCaged == true && statusCensec == true 
 						&& statusDetran == true && statusJucesp == true) {
@@ -80,7 +81,7 @@ public class CrawlerPj {
 						&& statusDetran == false && statusJucesp == false) {
 					HttpComunication.editStatusPjerrorFull(pj);
 				}
-				*/
+				
 				
 				relatorio.relatorioPdfPj(pj,statusArisp,statusCadesp,statusCaged,statusCensec,statusDetran,statusJucesp);
 			}

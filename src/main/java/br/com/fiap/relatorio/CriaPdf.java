@@ -75,6 +75,7 @@ public class CriaPdf {
 			Font h3 = new Font(Font.BOLD, 18, Font.BOLD);
 			Font font = new Font(Font.BOLD, 12, Font.NORMAL);
 			Font error = new Font(Font.BOLD, 22, Font.BOLD,new Color(255,0,0));
+			Font error1 = new Font(Font.BOLD, 14, Font.BOLD,new Color(255,0,0));
 			Paragraph espaco = new Paragraph("\n\n");
 			
 			Image image;
@@ -95,11 +96,16 @@ public class CriaPdf {
 					document.add(espaco);
 				}
 				
-				
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//arisp//pf//idPf-"+pfJson.getIdPf()+"//pt-1-pag-1.png");
 				image.scaleAbsolute(700, 500);
 				document.add(image);			
 				document.add(espaco);
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro1 = new Paragraph("Deu pau no Crawler do Arisp",error);
 				document.add(erro1);
@@ -150,11 +156,16 @@ public class CriaPdf {
 					document.add(paragrafoCaged2);
 					document.add(espaco);
 				}
-				
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//caged//pf//idPf-"+pfJson.getIdPf()+"//vinculo.png");
 				image.scaleAbsolute(500, 300);
 				document.add(image);			
 				document.add(espaco);
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro3 = new Paragraph("Deu pau no Crawler do Caged",error);
 				document.add(erro3);
@@ -173,7 +184,7 @@ public class CriaPdf {
 					+"\n	Cartorio: "+censec.getCartorio()+" | Tipo de Ato: "+censec.getTipoAto()+" | Livro: "+censec.getLivro()
 					+"\n	Folha: " +censec.getFolha()+" | Data do Ato: " +censec.getDtAto() + " | Carga: "+censec.getCarga()
 					+"\n	Ato da Carga: "+censec.getAtoCarga()+" | Data Ato da Carga: "+censec.getDtAtoCarga()+" | Livro Carga: "+censec.getLivroCarga()
-					+"\n	Complemento do Livro da Carga: " +censec.getComplementoLivroCarga()+" | Folha Carga: " + censec.getFolhaCarga()+" | Complemento Folha Carga: " +censec.getComplementoFolhaCarga());
+					+"\n	Complemento do Livro da Carga: " +censec.getComplementoLivroCarga()+" | Folha Carga: " + censec.getFolhaCarga()+" | Complemento Folha Carga: " +censec.getComplementoFolhaCarga(),font);
 					document.add(paragrafoCensec);
 					document.add(paragrafoCensec2);
 					document.add(espaco);
@@ -204,26 +215,44 @@ public class CriaPdf {
 				Paragraph cnh = new Paragraph("CNH\n", h3);
 				document.add(cnh);
 				
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//detran//pf//idPf-"+pfJson.getIdPf()+"//cnh.png");
 				image.scaleAbsolute(500, 300);
 				document.add(image);			
 				document.add(espaco);
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
 				
 				Paragraph condutor = new Paragraph("Condutor\n", h3);
 				document.add(condutor);
 				
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//detran//pf//idPf-"+pfJson.getIdPf()+"//condutor-pag-1.png");
 				image.scaleAbsolute(500, 300);
 				document.add(image);			
 				document.add(espaco);
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
 				
 				Paragraph veiculo = new Paragraph("Veiculo\n", h3);
 				document.add(veiculo);
 				
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//detran//pf//idPf-"+pfJson.getIdPf()+"//pag-veiculo-1.png");
 				image.scaleAbsolute(500, 300);
 				document.add(image);			
 				document.add(espaco);
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro5 = new Paragraph("Deu pau no Crawler do Detran",error);
 				document.add(erro5);
@@ -234,16 +263,26 @@ public class CriaPdf {
 				Paragraph paragrafo6 = new Paragraph("Resultados Infocrim\n\n", h3);
 				paragrafo6.setAlignment(Element.ALIGN_CENTER);
 				document.add(paragrafo6);
-				
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//infocrim//pf//idPf-"+pfJson.getIdPf()+"//bo_79//2014//pt1.png");
 				image.scaleAbsolute(500, 300);
 				document.add(image);			
 				document.add(espaco);
-				
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//infocrim//pf//idPf-"+pfJson.getIdPf()+"//bo_79//2014//pt2.png");
 				image.scaleAbsolute(500, 300);
 				document.add(image);			
 				document.add(espaco);
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro6 = new Paragraph("Deu pau no Crawler do Infocrim",error);
 				document.add(erro6);
@@ -316,13 +355,11 @@ public class CriaPdf {
 		CagedRepository cagedRepository = new CagedRepository();
 		CadespRepository cadespRepository = new CadespRepository(); 
 		ResultadoCensecRepository censecRepository = new ResultadoCensecRepository();
-		DetranRepository detranRepository = new DetranRepository();
 		JucespRepository jucespRepository = new JucespRepository();
 		Document document = new Document();
 		List<ProcessoArispModel> processosArisp = new ArrayList<ProcessoArispModel>();
 		List<CagedModel> cageds = new ArrayList<CagedModel>();
 		List<ResultadoCensecModel> censecs = new ArrayList<ResultadoCensecModel>();
-		List<DetranModel> detrans = new ArrayList<DetranModel>();
 		List<CadespModel> cadesps = new ArrayList<CadespModel>();
 		List<JucespModel> jucesps = new ArrayList<JucespModel>();
 		
@@ -346,6 +383,7 @@ public class CriaPdf {
 			Font h3 = new Font(Font.BOLD, 18, Font.BOLD);
 			Font font = new Font(Font.BOLD, 12, Font.NORMAL);
 			Font error = new Font(Font.BOLD, 22, Font.BOLD,new Color(255,0,0));
+			Font error1 = new Font(Font.BOLD, 14, Font.BOLD,new Color(255,0,0));
 			Paragraph espaco = new Paragraph("\n\n");
 			
 			Image image;
@@ -365,11 +403,16 @@ public class CriaPdf {
 					document.add(espaco);
 				}
 				
-				
+				try {
 				image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//arisp//pj//idPj-"+pj.getIdPj()+"//pt-1-pag-1.png");
 				image.scaleAbsolute(700, 500);
 				document.add(image);			
 				document.add(espaco);
+				}catch (Exception e) {
+					Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+					document.add(erro1);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro1 = new Paragraph("Deu pau no Crawler do Arisp",error);
 				document.add(erro1);
@@ -380,27 +423,83 @@ public class CriaPdf {
 				paragrafo2.setAlignment(Element.ALIGN_CENTER);
 				document.add(paragrafo2);
 				
-				
+				cadesps = cadespRepository.findAllById(pj);
+				for(CadespModel cadesp:cadesps) {
+					Paragraph paragrafoCadesp = new Paragraph("Cadesp: " + pj.getIdPj() + ": \n", font);
+					Paragraph paragrafoCadesp2 = new Paragraph("	IE: "+cadesp.getiE()+" | Situação: "+cadesp.getSituacaoCadesp()+" | Data Inscrição Estadual: "+cadesp.getDtInstituicaoEstado()
+					+"\n	Regime Estadual: "+cadesp.getRegimeEstadual()+" | DRT: "+cadesp.getDrt()+" | Posto Fiscal: "+cadesp.getPostoFiscal()
+					+"\n	Nire: "+cadesp.getNire()+" | Ocorrência Fiscal: "+cadesp.getOcorrenciaFiscal()+" | Tipo de Unidade: "+cadesp.getTipoUnidade()
+					+"\n	Data de Inicio da IE: "+cadesp.getDtInicioIe()+" | Formas de Atuação: "+cadesp.getFormasAtuacao(),font);
+					document.add(paragrafoCadesp);
+					document.add(paragrafoCadesp2);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro2 = new Paragraph("Deu pau no Crawler do Cadesp",error);
 				document.add(erro2);
 				document.add(espaco);
 			}
 			if(statusCaged == true) {
+				Paragraph paragrafo3 = new Paragraph("Resultados Caged\n\n", h3);
+				paragrafo3.setAlignment(Element.ALIGN_CENTER);		
+				document.add(paragrafo3);
 				
+				cageds = cagedRepository.findAllByIdPj(pj);
+				for(CagedModel caged:cageds){
+					Paragraph paragrafoCaged = new Paragraph("Caged: " + pj.getIdPj() + ": \n", font);
+					Paragraph paragrafoCaged2 = new Paragraph("	  Logradouro: "+caged.getLogradouro() +" | Bairro: "+caged.getBairroDistrito()+" | Municipio: "+caged.getMunicipio()
+					+"\n	UF: "+caged.getUf()+" | CEP: "+caged.getCep()+" | Nome Contato: "+caged.getNomContato()
+					+"\n	CPF Contato: "+caged.getCpfContato()+" | Telefone Contato: "+caged.getTelContato()+" | Email Contato: "+caged.getEmailContato()
+					+"\n	Ramal Contato: "+caged.getRamalContato()+" | Numero de Filiais: "+caged.getNrFiliais()+" | Admissoes: "+caged.getAdmissoes()
+					+"\n	Variação Absoluta: "+caged.getVariacaoAbsoluta()+" | Total de Vinculos: "+caged.getTotalVinculos()+" | Desligamentos: "+caged.getDesligamentos()
+					+"\n	Primeiro Dia: "+caged.getPrimeiroDia()+" | Ultimo Dia: "+caged.getUltimoDia()+" | Série CTPS: "+caged.getCtpsSerie()
+					+"\n	Rais : "+caged.getRais(),font);
+					document.add(paragrafoCaged);
+					document.add(paragrafoCaged2);
+					document.add(espaco);
+				}		
 			}else {
 				Paragraph erro3 = new Paragraph("Deu pau no Crawler do Caged",error);
 				document.add(erro3);
 				document.add(espaco);
 			}
 			if(statusCensec == true) {
+				Paragraph paragrafo4 = new Paragraph("Resultados Censec\n\n", h3);
+				paragrafo4.setAlignment(Element.ALIGN_CENTER);		
+				document.add(paragrafo4);
 				
+				censecs = censecRepository.findAllByIdPj(pj);
+				for(ResultadoCensecModel censec:censecs) {
+					Paragraph paragrafoCensec = new Paragraph("Censec: " + pj.getIdPj() + ": \n", font);
+					Paragraph paragrafoCensec2 = new Paragraph("	Nome empresa: " +censec.getNomeEmpresa()+" | CPF/CNPJ: " +censec.getCpfCnpj()+" | Identidade: " +censec.getIdentidade()
+					+"\n	Cartorio: "+censec.getCartorio()+" | Tipo de Ato: "+censec.getTipoAto()+" | Livro: "+censec.getLivro()
+					+"\n	Folha: " +censec.getFolha()+" | Data do Ato: " +censec.getDtAto() + " | Carga: "+censec.getCarga()
+					+"\n	Ato da Carga: "+censec.getAtoCarga()+" | Data Ato da Carga: "+censec.getDtAtoCarga()+" | Livro Carga: "+censec.getLivroCarga()
+					+"\n	Complemento do Livro da Carga: " +censec.getComplementoLivroCarga()+" | Folha Carga: " + censec.getFolhaCarga()+" | Complemento Folha Carga: " +censec.getComplementoFolhaCarga(),font);
+					document.add(paragrafoCensec);
+					document.add(paragrafoCensec2);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro4 = new Paragraph("Deu pau no Crawler do Censec",error);
 				document.add(erro4);
 				document.add(espaco);
 			}
 			if(statusDetran == true) {
+				Paragraph paragrafo5 = new Paragraph("Resultados Detran\n\n", h3);
+				paragrafo5.setAlignment(Element.ALIGN_CENTER);		
+				document.add(paragrafo5);
+				
+				try {
+					image = Image.getInstance("C://Users//tleite//Pictures//imgs-mpsp//detran//pj//idPj-"+pj.getIdPj()+"//pag-veiculo-1.png");
+					image.scaleAbsolute(500, 300);
+					document.add(image);			
+					document.add(espaco);
+					}catch (Exception e) {
+						Paragraph erro1 = new Paragraph("Não foi possível printar o portal",error1);
+						document.add(erro1);
+						document.add(espaco);
+					}
 				
 			}else {
 				Paragraph erro5 = new Paragraph("Deu pau no Crawler do Detran",error);
@@ -408,7 +507,23 @@ public class CriaPdf {
 				document.add(espaco);
 			}
 			if(statusJucesp == true) {
+				Paragraph paragrafo6 = new Paragraph("Resultados Jucesp\n\n", h3);
+				paragrafo6.setAlignment(Element.ALIGN_CENTER);		
+				document.add(paragrafo6);
 				
+				jucesps = jucespRepository.findAllByIdPj(pj);
+				for(JucespModel jucesp:jucesps) {
+					Paragraph paragrafoCensec = new Paragraph("Censec: " + pj.getIdPj() + ": \n", font);
+					Paragraph paragrafoCensec2 = new Paragraph("	Razão Social: "+jucesp.getRazaoSocial()+" | Nire Matriz: "+jucesp.getNireMatriz()+" | Tipo de Empresa: "+jucesp.getTipoEmpresa()
+					+"\n	Data Constituição: " + jucesp.getDtConstituicao()+" | Inicio Atividade: "+jucesp.getInicioAtividade()+" | CNPJ: "+jucesp.getCnpj()
+					+"\n	Objetivo: "+jucesp.getObjetivo()+" | Capital: "+jucesp.getCapital()+" | Logradouro: "+jucesp.getLogradouro()
+					+"\n	Nº: "+jucesp.getNr()+" | Bairro: "+jucesp.getBairro()+" | Municipio: "+jucesp.getMunicipio()
+					+"\n	Complemento: "+jucesp.getComplemento()+" | Complemento: "+jucesp.getComplemento()+" | CEP: "+jucesp.getCep()
+					+"\n	UF: "+jucesp.getUf(),font);
+					document.add(paragrafoCensec);
+					document.add(paragrafoCensec2);
+					document.add(espaco);
+				}
 			}else {
 				Paragraph erro6 = new Paragraph("Deu pau no Crawler do Jucesp",error);
 				document.add(erro6);

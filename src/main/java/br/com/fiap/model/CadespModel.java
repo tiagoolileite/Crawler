@@ -18,6 +18,27 @@ public class CadespModel {
 	
 	private PJJsonModel pj;
 	
+	public CadespModel() {
+	}
+	public CadespModel(Long idCadesp, String iE, String situacaoCadesp, String dtInstituicaoEstado,
+			String nomeEmpresarial, String regimeEstadual, String drt, String postoFiscal, String nire,
+			String ocorrenciaFiscal, String tipoUnidade, String dtInicioIe, String formasAtuacao, PJJsonModel pj) {
+		super();
+		this.idCadesp = idCadesp;
+		this.iE = iE;
+		this.situacaoCadesp = situacaoCadesp;
+		this.dtInstituicaoEstado = dtInstituicaoEstado;
+		this.nomeEmpresarial = nomeEmpresarial;
+		this.regimeEstadual = regimeEstadual;
+		this.drt = drt;
+		this.postoFiscal = postoFiscal;
+		this.nire = nire;
+		this.ocorrenciaFiscal = ocorrenciaFiscal;
+		this.tipoUnidade = tipoUnidade;
+		this.dtInicioIe = dtInicioIe;
+		this.formasAtuacao = formasAtuacao;
+		this.pj = pj;
+	}
 	public Long getIdCadesp() {
 		return idCadesp;
 	}

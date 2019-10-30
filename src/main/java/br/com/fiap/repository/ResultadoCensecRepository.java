@@ -174,4 +174,42 @@ public class ResultadoCensecRepository {
 		
 		return censecs;
 	}
+
+	public List<ResultadoCensecModel> findAllByIdPj(PJJsonModel pj) {
+		List<ResultadoCensecModel> censecs = new ArrayList<ResultadoCensecModel>();
+		sql = "select * from tb_censec"
+				+ " where id_pj = ?";
+		
+		try {
+			p = connection.prepareStatement(sql);
+			p.setLong(1, pj.getIdPj());
+			rs = p.executeQuery();
+			
+			while(rs.next()) {				
+				long idCensec = rs.getLong(1);
+				String nomeEmpresa = rs.getString(2);
+				String cpfCnpj = rs.getString(3);
+				String identidade = rs.getString(4);
+				String cartorio = rs.getString(5);
+				String tipoAto = rs.getString(6);
+				String livro = rs.getString(7);
+				String folha = rs.getString(8);
+				String dtAto = rs.getString(9);
+				String carga = rs.getString(10);
+				String atoCarga = rs.getString(11);
+				String dtAtoCarga = rs.getString(12);
+				String livroCarga = rs.getString(13);
+				String complementoLivroCarga = rs.getString(14);
+				String folhaCarga = rs.getString(15);
+				String complementoFolhaCarga = rs.getString(16);
+				
+				ResultadoCensecModel censec = new ResultadoCensecModel(idCensec, nomeEmpresa, cpfCnpj, identidade, cartorio, tipoAto, livro, folha, dtAto, carga, atoCarga, dtAtoCarga, livroCarga, complementoLivroCarga, folhaCarga, complementoFolhaCarga, pj);
+				censecs.add(censec);
+			}
+		}catch (SQLException e) {
+			System.out.println("Erro para buscar os registros\n" + e);
+		}
+		
+		return censecs;
+	}
 }

@@ -14,9 +14,9 @@ import br.com.fiap.service.DBConect;
 public class PFRepository {
 	
 	private Connection connection;
-	private PreparedStatement p,q;
-	private ResultSet rs,rsSeq;
-	private String sql,sequence;
+	private PreparedStatement p;
+	private ResultSet rs;
+	private String sql;
 	
 	public PFRepository() {
 		// TODO Auto-generated constructor stub
@@ -68,15 +68,13 @@ public class PFRepository {
 				+ "nr_processo_arpensp,nr_processo_siel,pis_pasep,placa,matricula_sap "
 				+ ") values (?, ?, ?, ?, ?, "
 				+ "?, ?, ?, ?, ?, ?, ?)";
-		sequence = "select PF_SEQ.NEXTVAL from dual";
 		try {
 			
 			p = connection.prepareStatement(sql);
-			q = connection.prepareStatement(sequence);
-			rsSeq = q.executeQuery();
+			
 			for(PFJsonModel pf:pessoasF) {
-				rsSeq.next();
-				long idPf = rsSeq.getLong(1);
+				
+				long idPf = pf.getIdPf();
 				
 				java.sql.Date dtNascimentoSql = new java.sql.Date(pf.getDtNascimento().getTime());
 				java.sql.Date dtConsultaSql = new java.sql.Date(pf.getDtConsulta().getTime());
@@ -93,7 +91,6 @@ public class PFRepository {
 				p.setString(11, pf.getPlaca());
 				p.setString(12, pf.getMatriculaSapSivec());
 				p.execute();	
-				rsSeq = q.executeQuery();
 			}
 			connection.commit();
 			System.out.println("Parece q gravou certinho a lista de pessoas físicas que veio do Json, espero que sim ;X\n");

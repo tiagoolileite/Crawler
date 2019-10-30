@@ -1,11 +1,11 @@
 package br.com.fiap;
 
-//import br.com.fiap.service.CrawlerPf;
+import br.com.fiap.service.CrawlerPf;
 import br.com.fiap.service.CrawlerPj;
 
 public class StartCrawling {
 	public static void main(String[] args) {
-		/*
+		
 		new Thread(new Runnable() {
 			
 			@Override
@@ -14,7 +14,7 @@ public class StartCrawling {
 				crwlPf.PessoaFiscia();
 			}
 		}).start();
-		*/
+		
 		
 		new Thread(new Runnable() {
 			

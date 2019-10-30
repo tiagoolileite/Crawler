@@ -12,9 +12,9 @@ import br.com.fiap.service.DBConect;
 
 public class PJRepository {
 	private Connection connection;
-	private PreparedStatement p,q;
-	private ResultSet rs,rsSeq;
-	private String sql,sequence;
+	private PreparedStatement p;
+	private ResultSet rs;
+	private String sql;
 	
 	public PJRepository() {
 		// TODO Auto-generated constructor stub
@@ -58,15 +58,11 @@ public class PJRepository {
 	public void saveAll(List<PJJsonModel> pessoasJ) {
 		sql="insert into tb_pj (id_pj,cnpj,razao_social,nome_fantasia,matricula_arisp,dt_consulta,status"
 				+ ") values (?, ?, ?, ?, ?, ?, ?)";
-		sequence = "select PJ_SEQ.NEXTVAL from dual";
 		try {
 			
 			p = connection.prepareStatement(sql);
-			q = connection.prepareStatement(sequence);
-			rsSeq = q.executeQuery();
 			for(PJJsonModel pj:pessoasJ) {
-				rsSeq.next();
-				long idPj = rsSeq.getLong(1);
+				long idPj = pj.getIdPj();
 		
 				java.sql.Date dtConsultaSql = new java.sql.Date(pj.getDtConsulta().getTime());
 				p.setLong(1,idPj);
@@ -77,7 +73,6 @@ public class PJRepository {
 				p.setDate(6, dtConsultaSql);
 				p.setString(7, pj.getStatus());
 				p.execute();	
-				rsSeq = q.executeQuery();
 			}
 			connection.commit();
 			System.out.println("Parece q gravou certinho a lista de empresas que veio do Json, espero que sim ;X\n");

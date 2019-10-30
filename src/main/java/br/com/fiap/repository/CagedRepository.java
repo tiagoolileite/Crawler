@@ -188,4 +188,53 @@ public class CagedRepository {
 		return cageds;
 	}
 
+	public List<CagedModel> findAllByIdPj(PJJsonModel pj) {
+		List<CagedModel> cageds = new ArrayList<CagedModel>();
+		sql = "select * from tb_caged"
+				+ " where id_pj = ?";
+		
+		try {
+			p = connection.prepareStatement(sql);
+			p.setLong(1, pj.getIdPj());
+			rs = p.executeQuery();
+			
+			while(rs.next()) {				
+				long idCaged = rs.getLong(1);
+				String logradouro = rs.getString(2);
+				String bairroDistrito = rs.getString(3);
+				String municipio = rs.getString(4);
+				String uf = rs.getString(5);
+				String cep = rs.getString(6);
+				String nomContato = rs.getString(7);
+				String cpfContato = rs.getString(8);
+				String telContato = rs.getString(9);
+				String emailContato = rs.getString(10);
+				String ramalContato = rs.getString(11);
+				String nrFiliais = rs.getString(12);
+				String admissoes = rs.getString(13);
+				String variacaoAbsoluta = rs.getString(14);
+				String totalVinculos = rs.getString(15);
+				String desligamentos = rs.getString(16);
+				String primeiroDia = rs.getString(17);
+				String ultimoDia = rs.getString(18);
+				String ctpsSerie = rs.getString(20);
+				String situacaoPis = rs.getString(21);
+				String nacionalidade = rs.getString(22);
+				String grauInstrucao = rs.getString(23);
+				String deficiente = rs.getString(24);
+				String sexo = rs.getString(25);
+				String racaCor = rs.getString(26);
+				String tempoTrabalho = rs.getString(27);
+				String rais = rs.getString(28);
+				
+				CagedModel caged = new CagedModel(idCaged, logradouro, bairroDistrito, municipio, uf, cep, nomContato, cpfContato, telContato, emailContato, ramalContato, nrFiliais, admissoes, variacaoAbsoluta, totalVinculos, desligamentos, primeiroDia, ultimoDia, ctpsSerie, situacaoPis, nacionalidade, grauInstrucao, deficiente, sexo, racaCor, tempoTrabalho, rais, pj);
+				cageds.add(caged);
+			}
+		}catch (SQLException e) {
+			System.out.println("Erro para buscar os registros\n" + e);
+		}
+		
+		return cageds;
+	}
+
 }

@@ -30,6 +30,60 @@ public class ResultadoCensecModel {
 	public ResultadoCensecModel() {
 
 	}
+	
+	
+	public ResultadoCensecModel(Long idCensec, String nomeEmpresa, String cpfCnpj, String identidade, String cartorio,
+			String tipoAto, String livro, String folha, String dtAto, String carga, String atoCarga, String dtAtoCarga,
+			String livroCarga, String complementoLivroCarga, String folhaCarga, String complementoFolhaCarga,
+			PJJsonModel pj) {
+		super();
+		this.idCensec = idCensec;
+		this.nomeEmpresa = nomeEmpresa;
+		this.cpfCnpj = cpfCnpj;
+		this.identidade = identidade;
+		this.cartorio = cartorio;
+		this.tipoAto = tipoAto;
+		this.livro = livro;
+		this.folha = folha;
+		this.dtAto = dtAto;
+		this.carga = carga;
+		this.atoCarga = atoCarga;
+		this.dtAtoCarga = dtAtoCarga;
+		this.livroCarga = livroCarga;
+		this.complementoLivroCarga = complementoLivroCarga;
+		this.folhaCarga = folhaCarga;
+		this.complementoFolhaCarga = complementoFolhaCarga;
+		this.pj = pj;
+	}
+
+
+	public ResultadoCensecModel(Long idCensec, String nomeEmpresa, String cpfCnpj, String identidade, String cartorio,
+			String tipoAto, String livro, String folha, String dtAto, String carga, String atoCarga, String dtAtoCarga,
+			String livroCarga, String complementoLivroCarga, String folhaCarga, String complementoFolhaCarga,
+			List<ParteCensecModel> partes, List<ContatoCensecModel> contatos, PJJsonModel pj) {
+		super();
+		this.idCensec = idCensec;
+		this.nomeEmpresa = nomeEmpresa;
+		this.cpfCnpj = cpfCnpj;
+		this.identidade = identidade;
+		this.cartorio = cartorio;
+		this.tipoAto = tipoAto;
+		this.livro = livro;
+		this.folha = folha;
+		this.dtAto = dtAto;
+		this.carga = carga;
+		this.atoCarga = atoCarga;
+		this.dtAtoCarga = dtAtoCarga;
+		this.livroCarga = livroCarga;
+		this.complementoLivroCarga = complementoLivroCarga;
+		this.folhaCarga = folhaCarga;
+		this.complementoFolhaCarga = complementoFolhaCarga;
+		this.partes = partes;
+		this.contatos = contatos;
+		this.pj = pj;
+	}
+
+
 	public ResultadoCensecModel(Long idCensec, String nomeEmpresa, String cpfCnpj, String identidade, String cartorio,
 			String tipoAto, String livro, String folha, String dtAto, String carga, String atoCarga, String dtAtoCarga,
 			String livroCarga, String complementoLivroCarga, String folhaCarga, String complementoFolhaCarga,

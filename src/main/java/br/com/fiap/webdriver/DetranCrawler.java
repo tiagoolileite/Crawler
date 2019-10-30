@@ -205,6 +205,7 @@ public class DetranCrawler {
 			for(@SuppressWarnings("unused") WebElement paginaPdf:paginasPdf) {
 				i++;
 				try {
+					Thread.sleep(5000);
 					SnapShot.takeSnapShot(driver, file.getPath() + "//pag-veiculo-" + i + ".png");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
