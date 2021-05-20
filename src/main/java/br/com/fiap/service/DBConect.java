@@ -6,9 +6,9 @@ public class DBConect {
 	
 	private static Connection connection;
     private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
-    private static final String URL = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
-    private static final String USUARIO = "pf0954";
-    private static final String SENHA = "fiap";
+    private static final String URL = "jdbc:oracle:thin:@servidor fiap:porta:ORCL";
+    private static final String USUARIO = "usuario fiap";
+    private static final String SENHA = "senha fiap";
     
     private DBConect() {}
     
